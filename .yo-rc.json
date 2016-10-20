@@ -1,0 +1,9 @@
+{
+  "generator-react-webpack": {
+    "appName": "hcard-builder",
+    "style": "scss",
+    "cssmodules": false,
+    "postcss": true,
+    "generatedWithVersion": 4
+  }
+}
