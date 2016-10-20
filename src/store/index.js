@@ -5,13 +5,13 @@ function reduxStore(initialState) {
   const store = createStore(rootReducer, initialState,
     window.devToolsExtension && window.devToolsExtension());
 
-  if (module.hot) {
-    module.hot.accept('../reducers', () => {
-      const nextReducer = require('../reducers');  // eslint-disable-line global-require
+  // if (module.hot) {
+  //   module.hot.accept('../reducers', () => {
+  //     const nextReducer = require('../reducers');
 
-      store.replaceReducer(nextReducer);
-    });
-  }
+  //     store.replaceReducer(nextReducer);
+  //   });
+  // }
 
   return store;
 }

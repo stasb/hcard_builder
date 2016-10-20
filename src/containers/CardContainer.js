@@ -9,23 +9,25 @@ import CardForm from '../components/CardForm';
 import CardPreview from '../components/CardPreview';
 
 class CardContainer extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  }
-
   render() {
     const { dispatch } = this.props;
 
     return (
-      <p></p>
+      <div>
+        <CardForm />
+      </div>
     );
   }
 }
 
+CardContainer.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => ({
-  user_profile: state.user_profile
-})
+  userProfile: state.userProfile
+});
 
 export default connect(
   mapStateToProps
-)(CardContainer)
+)(CardContainer);

@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from './stores';
-import Hcard from './containers/Hcard';
+import configureStore from './store';
+import CardContainer from './containers/CardContainer';
 
 const store = configureStore();
 
 render(
   <Provider store={store}>
-    <App />
+    <CardContainer />
   </Provider>,
 
   document.getElementById('d-hcard-app')

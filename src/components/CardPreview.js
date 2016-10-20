@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class CardPreview extends React.Component {
-  static propTypes = {
-  }
-
+class CardPreview extends Component {
   render() {
     return (
       <div>
@@ -11,5 +8,8 @@ class CardPreview extends React.Component {
     );
   }
 }
+
+CardPreview.propTypes = {
+};
 
 export default CardPreview;
