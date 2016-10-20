@@ -10,7 +10,6 @@ describe('<App />', () => {
   });
 
   describe('when rendering the component', () => {
-
     it('should have a className of "index"', () => {
       expect(component.hasClass('index')).to.equal(true);
     });

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './stores';
-import App from './containers/App';
+import Hcard from './containers/Hcard';
 
 const store = configureStore();
 
@@ -11,5 +11,5 @@ render(
     <App />
   </Provider>,
 
-  document.getElementById('app')
+  document.getElementById('d-hcard-app')
 );
