@@ -71,10 +71,13 @@
     "postcss-loader": "^0.9.1"
   },
   "dependencies": {
+    "flux-constants": "^0.2.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
+    "react-redux-form": "^1.0.12",
     "redux": "^3.6.0",
-    "redux-form": "^6.1.1"
+    "redux-logger": "^2.7.0",
+    "redux-thunk": "^2.1.0"
   }
 }

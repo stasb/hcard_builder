@@ -25,7 +25,7 @@ CardContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userProfile: state.userProfile
+  profile: state.profile
 });
 
 export default connect(

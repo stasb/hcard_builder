@@ -1,20 +1,24 @@
+import { combineReducers } from 'redux';
+import { modeled, formReducer } from 'react-redux-form';
+import types from '../constants/ActionTypes';
 
-const userProfile = {}
+const profileInitialState = {
+  givenName: '',
+  surname: '',
+  email: '',
+  fullName: ''
+};
 
-// const userProfile = (state = {
-//   isFetching: false,
-//   didInvalidate: false,
-//   items: []
-// }, action) => {
-//   switch (action.type) {
-//     case ACTION:
-//       return {
-//         ...state,
-//         didInvalidate: true
-//       }
-//     default:
-//       return state
-//   }
-// }
+function profileReducer(state = profileInitialState, action) {
+  switch (action.type) {
+    case types.GET_FULL_NAME:
+      return Object.assign({}, state, {
+        fullName: 'test'
+      });
+    default:
+      return state;
+  }
+}
 
-export default userProfile;
+export const profile = modeled(profileReducer, 'profile');
+export const profileForm = formReducer('profile', profileInitialState);

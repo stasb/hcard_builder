@@ -1,54 +1,51 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Form, Field } from 'react-redux-form';
 
-let CardForm = props => {
-  const { handleSubmit } = props;
+class CardForm extends Component {
+  handleSubmit() {
+    const { dispatch } = this.props;
+  }
 
-  return (
-    <form onSubmit={handleSubmit}>
+  render() {
+    const { profile } = this.props;
+
+    return (
       <div>
-        <label htmlFor="givenName">First Name</label>
-        <Field name="givenName" component="input" type="text"/>
-      </div>
+        <Form model="profile" onSubmit={() => this.handleSubmit()}>
+          <Field model="profile.givenName">
+            <label>Given name:</label>
+            <input type="text" />
+          </Field>
 
-      <div>
-        <label htmlFor="surname">Last Name</label>
-        <Field name="surname" component="input" type="text"/>
-      </div>
+          <Field model="profile.surname">
+            <label>Surname:</label>
+            <input type="text" />
+          </Field>
 
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email"/>
-      </div>
+          <Field model="profile.email">
+            <label>Email:</label>
+            <input type="text" />
+          </Field>
 
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+          <button type="submit">
+            Create hCard
+          </button>
+        </Form>
+      </div>
+    );
+  }
+}
 
 CardForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
+  profile: PropTypes.object
 };
 
-CardForm = reduxForm({
-  form: 'card_form'
-})(CardForm);
+const mapStateToProps = state => ({
+  profile: state.profile
+});
 
-const selector = formValueSelector('CardForm');
-
-CardForm = connect(
-  state => {
-    const givenName = selector(state, 'givenName');
-    const surname = selector(state, 'surname');
-    const email = selector(state, 'email');
-
-    return {
-      givenName,
-      surname,
-      email
-    };
-  }
+export default connect(
+  mapStateToProps
 )(CardForm);
-
-export default CardForm;
