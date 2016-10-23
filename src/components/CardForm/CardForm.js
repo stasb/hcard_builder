@@ -4,12 +4,9 @@ import { Form, Field } from 'react-redux-form';
 
 class CardForm extends Component {
   handleSubmit() {
-    const { dispatch } = this.props;
   }
 
   render() {
-    const { profile } = this.props;
-
     return (
       <div>
         <Form model="profile" onSubmit={() => this.handleSubmit()}>
@@ -38,14 +35,8 @@ class CardForm extends Component {
 }
 
 CardForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func,
   profile: PropTypes.object
 };
 
-const mapStateToProps = state => ({
-  profile: state.profile
-});
-
-export default connect(
-  mapStateToProps
-)(CardForm);
+export default CardForm;

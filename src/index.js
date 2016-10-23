@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store';
-import CardContainer from './containers/CardContainer';
+import CardContainer from './containers/CardContainer/CardContainer';
 
 const store = configureStore();
 

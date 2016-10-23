@@ -2,6 +2,7 @@
 
 const path = require('path');
 const npmBase = path.join(__dirname, '../../node_modules');
+const autoprefixer = require('autoprefixer');
 
 class WebpackBaseConfig {
   constructor() {
