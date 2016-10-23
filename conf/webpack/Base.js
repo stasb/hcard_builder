@@ -63,7 +63,7 @@ class WebpackBaseConfig {
   get defaultSettings() {
     return {
       context: this.srcPathAbsolute,
-      debug: false,
+      debug: true,
       devtool: 'eval',
       devServer: {
         contentBase: './src/',
@@ -147,7 +147,7 @@ class WebpackBaseConfig {
           },
           {
             test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2)$/,
-            loaders: ['file']
+            loader: 'url-loader?limit=200000'
           },
           { test: /\.svg$/, loader: 'url?limit=65000&mimetype=image/svg+xml&name=public/fonts/[name].[ext]' },
           { test: /\.woff$/, loader: 'url?limit=65000&mimetype=application/font-woff&name=public/fonts/[name].[ext]' },

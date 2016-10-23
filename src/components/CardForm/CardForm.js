@@ -2,7 +2,17 @@ import React, { Component, PropTypes } from 'react';
 import { Form, Field } from 'react-redux-form';
 
 class CardForm extends Component {
-  handleSubmit() {
+  handleImageChange(event) {
+    event.preventDefault();
+
+    const reader = new FileReader();
+    const file = event.target.files[0];
+
+    reader.onloadend = () => {
+      this.props.updatePreviewImage(reader.result);
+    };
+
+    reader.readAsDataURL(file);
   }
 
   render() {
@@ -13,7 +23,7 @@ class CardForm extends Component {
             hCard Builder
           </h1>
 
-          <Form className="d-hc-form" model="profile" onSubmit={() => this.handleSubmit()}>
+          <Form className="d-hc-form" model="profile" onSubmit={() => this.props.onSubmit()}>
             <p className="d-hc-form-section-title">
               personal details
             </p>
@@ -104,9 +114,17 @@ class CardForm extends Component {
 
             <div className="d-hc-form-field-row d-hc-action-row">
               <div className="d-hc-field-col">
-                <button className="d-hc-button d-hc-button-base">
-                  Upload Avatar
-                </button>
+                <div className="d-hc-button d-hc-button-base d-hc-upload-button">
+                  <span>
+                    Upload Avatar
+                  </span>
+
+                  <input
+                    className="d-hc-upload-input"
+                    type="file" onChange={(event) => this.handleImageChange(event)}
+                  />
+                </div>
+
               </div>
 
               <div className="d-hc-field-col">
@@ -123,7 +141,9 @@ class CardForm extends Component {
 }
 
 CardForm.propTypes = {
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  updatePreviewImage: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default CardForm;

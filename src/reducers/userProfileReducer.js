@@ -5,14 +5,22 @@ const profileInitialState = {
   givenName: '',
   surname: '',
   email: '',
-  fullName: ''
+  phone: '',
+  houseName: '',
+  street: '',
+  suburb: '',
+  state: '',
+  postcode: '',
+  country: '',
+  fullName: '',
+  imagePreviewUrl: ''
 };
 
 function profileReducer(state = profileInitialState, action) {
   switch (action.type) {
-    case types.GET_FULL_NAME:
+    case types.UPDATE_PREVIEW_IMAGE:
       return Object.assign({}, state, {
-        fullName: 'test'
+        imagePreviewUrl: action.previewImage
       });
     default:
       return state;

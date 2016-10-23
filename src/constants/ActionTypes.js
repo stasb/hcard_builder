@@ -1,5 +1,5 @@
 import constants from 'flux-constants';
 
 export default constants([
-  'GET_FULL_NAME',
+  'UPDATE_PREVIEW_IMAGE'
 ]);

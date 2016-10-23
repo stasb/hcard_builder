@@ -31,7 +31,7 @@
 
   h1 {
     font-family: 'MerriweatherSans';
-    color: $dark-blue-font;
+    color: $dark-blue-primary;
     font-weight: 900;
   }
 
@@ -91,5 +91,26 @@
 
   .d-hc-button-primary {
     background-color: $primary-blue;
+  }
+
+  .d-hc-upload-button {
+    overflow: hidden;
+    position: relative;
+    height: 25px;
+    width: 88%;
+    cursor: pointer;
+  }
+
+  .d-hc-upload-input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
   }
 }
