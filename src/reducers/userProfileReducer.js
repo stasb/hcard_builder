@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { modeled, formReducer } from 'react-redux-form';
 import types from '../constants/ActionTypes';
 

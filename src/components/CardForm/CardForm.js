@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { Form, Field } from 'react-redux-form';
 
 class CardForm extends Component {
@@ -8,26 +7,89 @@ class CardForm extends Component {
 
   render() {
     return (
-      <div>
-        <Form model="profile" onSubmit={() => this.handleSubmit()}>
-          <Field model="profile.givenName">
-            <label>Given name:</label>
-            <input type="text" />
-          </Field>
+      <div className="d-hc-form-container">
+        <h1>
+          hCard Builder
+        </h1>
 
-          <Field model="profile.surname">
-            <label>Surname:</label>
-            <input type="text" />
-          </Field>
+        <Form className="d-hc-form" model="profile" onSubmit={() => this.handleSubmit()}>
+          <p className="d-hc-form-section-title">
+            personal details
+          </p>
 
-          <Field model="profile.email">
-            <label>Email:</label>
-            <input type="text" />
-          </Field>
+          <div className="d-hc-form-field-row">
+            <Field model="profile.givenName">
+              <label>Given name</label>
+              <input type="text" />
+            </Field>
 
-          <button type="submit">
-            Create hCard
-          </button>
+            <Field model="profile.surname">
+              <label>Surname</label>
+              <input type="text" />
+            </Field>
+          </div>
+
+          <div className="d-hc-form-field-row">
+            <Field model="profile.email">
+              <label>Email</label>
+              <input type="text" />
+            </Field>
+
+            <Field model="profile.phone">
+              <label>Phone</label>
+              <input type="text" />
+            </Field>
+          </div>
+
+          <p className="d-hc-form-section-title">
+            address
+          </p>
+
+          <div className="d-hc-form-field-row">
+            <Field model="profile.houseName">
+              <label>house name or #</label>
+              <input type="text" />
+            </Field>
+
+            <Field model="profile.street">
+              <label>street</label>
+              <input type="text" />
+            </Field>
+          </div>
+
+          <div className="d-hc-form-field-row">
+            <Field model="profile.suburb">
+              <label>suburb</label>
+              <input type="text" />
+            </Field>
+
+            <Field model="profile.state">
+              <label>state</label>
+              <input type="text" />
+            </Field>
+          </div>
+
+          <div className="d-hc-form-field-row">
+            <Field model="profile.postcode">
+              <label>postcode</label>
+              <input type="text" />
+            </Field>
+
+            <Field model="profile.country">
+              <label>country</label>
+              <input type="text" />
+            </Field>
+          </div>
+
+          <div className="d-hc-form-action-row">
+            <button>
+              Upload Avatar
+            </button>
+
+            <button type="submit">
+              Create hCard
+            </button>
+          </div>
         </Form>
       </div>
     );
@@ -35,8 +97,7 @@ class CardForm extends Component {
 }
 
 CardForm.propTypes = {
-  dispatch: PropTypes.func,
-  profile: PropTypes.object
+  profile: PropTypes.object.isRequired
 };
 
 export default CardForm;

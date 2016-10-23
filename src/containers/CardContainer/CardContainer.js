@@ -15,7 +15,7 @@ class CardContainer extends Component {
     const { dispatch } = this.props;
 
     return (
-      <div>
+      <div className="d-hc-card-container">
         <CardForm profile={this.props.profile} />
       </div>
     );

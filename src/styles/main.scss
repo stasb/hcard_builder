@@ -1,3 +1,11 @@
+@import './core';
 @import '../containers/CardContainer/CardContainer';
 @import '../components/CardForm/CardForm';
 @import '../components/CardPreview/CardPreview';
+
+#d-hcard-app {
+  h1 {
+    font-family: 'MerriweatherSans';
+    font-weight: 900;
+  }
+}
